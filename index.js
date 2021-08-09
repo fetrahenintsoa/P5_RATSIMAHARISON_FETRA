@@ -6,11 +6,14 @@ class Camera{
 }
 /* Appel de l'API, affichage de l'ensemble des articles */
 fetch("http://localhost:3000/api/cameras/")
+/*fct qui récupère la promesse et les données qui est formater en json*/
  .then( data => data.json())
+ /*recup de la nouvelle promesse et des données*/
  .then(jsonListCamera => {
+     /* boucle créant de manière dynamique un nouvel objet basé sur le modèle pour chaque article */
     for(let jsonCamera of jsonListCamera) {
         let camera = new Camera(jsonCamera);
-      
+      /* sélection de l'emplacement où intégrer l'objet dans la page html et injection du code html */
         document.querySelector(".camera").innerHTML += 
         `<div class="col-lg-4 col-xxl-3">
           <div class="card bg-light text-center mb-4">
@@ -24,4 +27,8 @@ fetch("http://localhost:3000/api/cameras/")
         </div>
      </div>`;
     }
-});
+})
+/* en cas de blèm avec le serveur*/
+.catch(function (erreur){
+    console.log(erreur);
+}
