@@ -81,7 +81,7 @@ if(valid) {
         city: document.querySelector("#city").value,
         email: document.querySelector("#mail").value
     };
-    /* Récupération de l'id des meubles sélectionnés */
+    /* Récupération de l'id des cameras sélectionnés */
     const products = [];
     for(let m = 0; m < saveProduct.length; m++) {
         let reference = saveProduct[m].id;
